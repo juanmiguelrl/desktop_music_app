@@ -1,0 +1,202 @@
+# English translations for  01-desktop-chronosss1-task6 package.
+# Copyright (C) 2020 THE  01-desktop-chronosss1-task6'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the  01-desktop-chronosss1-task6 package.
+# Ángel Miguélez Millos <anxomm@buster>, 2020.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version:  01-desktop-chronosss1-task6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-27 17:56+0100\n"
+"PO-Revision-Date: 2020-10-27 17:57+0100\n"
+"Last-Translator: Ángel Miguélez Millos <anxomm@buster>\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: model.py:18
+msgid "do"
+msgstr "C"
+
+#: model.py:18
+msgid "re"
+msgstr "D"
+
+#: model.py:18
+msgid "mi"
+msgstr "E"
+
+#: model.py:18
+msgid "fa"
+msgstr "F"
+
+#: model.py:18
+msgid "sol"
+msgstr "G"
+
+#: model.py:18
+msgid "la"
+msgstr "A"
+
+#: model.py:18
+msgid "si"
+msgstr "B"
+
+#: model.py:23
+msgid "2m"
+msgstr "m2"
+
+#: model.py:23
+msgid "2M"
+msgstr "M2"
+
+#: model.py:23
+msgid "3m"
+msgstr "m3"
+
+#: model.py:23
+msgid "3M"
+msgstr "M3"
+
+#: model.py:23
+msgid "4j"
+msgstr "P4"
+
+#: model.py:23
+msgid "4aum"
+msgstr "A4"
+
+#: model.py:24
+msgid "5j"
+msgstr "P5"
+
+#: model.py:24
+msgid "6m"
+msgstr "m6"
+
+#: model.py:24
+msgid "6M"
+msgstr "M6"
+
+#: model.py:24
+msgid "7m"
+msgstr "m7"
+
+#: model.py:24
+msgid "7M"
+msgstr "M7"
+
+#: model.py:24
+msgid "8a"
+msgstr "P8"
+
+#: model.py:26
+msgid "Segunda menor"
+msgstr "Minor second"
+
+#: model.py:26
+msgid "Segunda mayor"
+msgstr "Major second"
+
+#: model.py:26
+msgid "Tercera menor"
+msgstr "Minor third"
+
+#: model.py:27
+msgid "Tercera mayor"
+msgstr "Major third"
+
+#: model.py:27
+msgid "Cuarta justa"
+msgstr "Perfect fourth"
+
+#: model.py:27
+msgid "Cuarta aumentada"
+msgstr "Augmented fourth"
+
+#: model.py:28
+msgid "Quinta justa"
+msgstr "Perfect fifth"
+
+#: model.py:28
+msgid "Sexta menor"
+msgstr "Minor sixth"
+
+#: model.py:28
+msgid "Sexta mayor"
+msgstr "Major sixth"
+
+#: model.py:29
+msgid "Septima menor"
+msgstr "Minor seventh"
+
+#: model.py:29
+msgid "Septima mayor"
+msgstr "Major seventh"
+
+#: model.py:29
+msgid "Octava"
+msgstr "Octave"
+
+#: view.py:36
+msgid "Lo sentimos, parece que hay un problema con el servidor"
+msgstr "Sorry, seems there's a problem with the server"
+
+#: view.py:63
+msgid "<abreviatura>_<asc_des> (e.g. '8a_des')"
+msgstr "<abbreviation>_<asc_des> (e.g. 'P8_des')"
+
+#: view.py:76
+msgid "o selecciona"
+msgstr "or select"
+
+#: view.py:94
+msgid "Ascendente"
+msgstr "Ascendent"
+
+#: view.py:96
+msgid "Descendente"
+msgstr "Descendent"
+
+#: view.py:139
+msgid "Notas de ejemplo"
+msgstr "Example notes"
+
+#: view.py:150
+msgid "Cancion representativa"
+msgstr "Representative song"
+
+#: view.py:195
+msgid "Distancia"
+msgstr "Distance"
+
+#: view.py:216
+msgid "Titulo: "
+msgstr "Title: "
+
+#: view.py:218
+msgid "Abre el enlace en el navegador"
+msgstr "Open link in a browser"
+
+#: view.py:223
+msgid "Favorita"
+msgstr "Favourite"
+
+#: view.py:224
+msgid "SI"
+msgstr "YES"
+
+#: view.py:225
+msgid "NO"
+msgstr "NO"
+
+#: view.py:255
+msgid "Mostrar mas canciones"
+msgstr "Show more songs"
+
+#: view.py:275
+msgid "Resultados para"
+msgstr "Results for"

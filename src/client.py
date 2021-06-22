@@ -38,3 +38,4 @@ class MusicClient:
     def get_interval_songs(self, key, is_asc):
         dir = f"/songs/{key}/{is_asc}"
         return self.do_request("GET", dir)
+

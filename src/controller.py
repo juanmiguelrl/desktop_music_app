@@ -21,3 +21,4 @@ class MusicController:
 
     def set_model(self, model):
         self.model = model
+

@@ -2,8 +2,11 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
+import gettext
 import operator
 import model    # needed to use global music information in order to sort interval buttons
+
+_ = gettext.gettext
 
 class MusicView:
 
@@ -30,7 +33,7 @@ class MusicView:
         # Info bar
         self.infobar = Gtk.InfoBar()
 
-        label = Gtk.Label(label="Lo sentimos, parece que hay un problema con el servidor")
+        label = Gtk.Label(label=_("Lo sentimos, parece que hay un problema con el servidor"))
         self.infobar.get_content_area().add(label)
         self.infobar.set_message_type(Gtk.MessageType.ERROR)
 
@@ -57,7 +60,7 @@ class MusicView:
         # Search bar
         self.search_entry = Gtk.SearchEntry()
         self.search_entry.set_margin_top(40)
-        self.search_entry.set_placeholder_text("<abreviatura>_<asc_des> (e.g. '8a_des')")
+        self.search_entry.set_placeholder_text(_("<abreviatura>_<asc_des> (e.g. '8a_des')"))
         self.body_vbox.pack_start(self.search_entry, expand=False, fill=False, padding=0)
 
         # Search bar result subtext
@@ -70,7 +73,8 @@ class MusicView:
 
         # Selection text
         select_label = Gtk.Label()
-        select_label.set_markup("<big>o selecciona</big>")
+        text_select = _("o selecciona")
+        select_label.set_markup(f"<big>{text_select}</big>")
         self.elements_screen1.append(select_label)
         self.body_vbox.pack_start(select_label, expand=False, fill=False, padding=20)
 
@@ -87,9 +91,9 @@ class MusicView:
         frame_box.pack_start(header_box, expand=False, fill=False, padding=0)
 
         # Interval mode options
-        self.ascendent_button = Gtk.RadioButton(label="Ascendente")
+        self.ascendent_button = Gtk.RadioButton(label=_("Ascendente"))
 
-        self.descendent_button = Gtk.RadioButton.new_with_label_from_widget(self.ascendent_button, "Descendente")
+        self.descendent_button = Gtk.RadioButton.new_with_label_from_widget(self.ascendent_button, _("Descendente"))
         self.descendent_button.set_active(False)
 
         header_box.add(self.ascendent_button)
@@ -132,7 +136,7 @@ class MusicView:
         self.elements_screen2.append(stacksw)
 
         notes_vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.stack.add_titled(notes_vbox, "notas", "Notas de ejemplo")
+        self.stack.add_titled(notes_vbox, ("notas"), _("Notas de ejemplo"))
 
         distance_label = Gtk.Label()
         note_label = Gtk.Label()
@@ -143,7 +147,7 @@ class MusicView:
         notes_vbox.pack_start(note_label2, False, False, padding=5)
 
         songs_window = Gtk.ScrolledWindow()
-        self.stack.add_titled(songs_window, "canciones", "Canción representativa")
+        self.stack.add_titled(songs_window, ("canciones"), _("Cancion representativa"))
 
         self.songs_vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         songs_window.add(self.songs_vbox)
@@ -174,10 +178,9 @@ class MusicView:
         # Create each button
         for key in avaliable_intervals:
             row = Gtk.ListBoxRow(selectable=False, activatable=False)
-
             button = Gtk.Button(label=model.get_interval_full_name(key))
             button.set_margin_top(5)
-            button.connect("clicked", self.controller.on_button_search, key)
+            button.connect("clicked", self.controller.on_button_search, model.translate_key(key))
             row.add(button)
             
             row.show_all()
@@ -188,7 +191,8 @@ class MusicView:
         box = self.stack.get_child_by_name("notas")
         
         distance = box.get_children()[0]
-        distance.set_markup(f"<i>Distancia: {info}</i>")
+        distance_text = _("Distancia")
+        distance.set_markup(f"<i>{distance_text}: {info}</i>")
 
         note1 = box.get_children()[1]
         note2 = box.get_children()[2]
@@ -208,12 +212,17 @@ class MusicView:
             separator.show()
             self.songs_vbox.pack_start(separator, False, False, 10)
 
-        text = 'Título: '
+        text = _('Titulo: ')
         if link != '':
-            text = text + '<a href="' + link +'"title="Abre el enlace en el navegador">' + title +'</a>' +'\n'
+            help_text = _("Abre el enlace en el navegador")
+            text = text + '<a href="' + link + f'" title="{help_text}">'+ title +'</a>' +'\n'
         else:
             text = text + f"{title} \n"
-        text = text + f'Favorita: {"SI" if fav == "YES" else "NO"}'
+
+        favourite_text = _("Favorita")
+        yes_text = _("SI")
+        no_text = _("NO")
+        text = text + f'{favourite_text}: {yes_text if fav == "YES" else no_text}'
 
         song_label = Gtk.Label()
         song_label.set_halign(Gtk.Align.START)
@@ -242,7 +251,7 @@ class MusicView:
         self.add_song_to_list(fav[0], fav[1], fav[2], True)
         
         # Button to show more songs
-        expand_button = Gtk.Button(label="Mostrar más canciones")
+        expand_button = Gtk.Button(label=_("Mostrar mas canciones"))
         expand_button.show()
 
         expand_button.connect("clicked", self.expand_songs, songs)
@@ -262,7 +271,8 @@ class MusicView:
 
     def update_results_data(self, query, info, songs):
         self.search_entry.set_text(query)
-        self.text_result.set_markup(f'<i>Resultados para "{query}"</i>')
+        text_results = _("Resultados para")
+        self.text_result.set_markup(f'<i>{text_results} "{query}"</i>')
 
         fields = query.split("_")
         self.add_interval_info(fields[0], fields[1], info)
@@ -307,3 +317,4 @@ class MusicView:
         key2 = model.get_interval_key_by_full_name(interval2)
 
         return fun(key_list.index(key1), key_list.index(key2))
+
